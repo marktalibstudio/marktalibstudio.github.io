@@ -112,6 +112,9 @@ function makePage(){
     let post2 = "";
     post2=createPost(posts[i+1]["image"], setPoster
     (posts[i+1]["list"]), i+1, posts[i+1]["list"]["name"]);
+    if(i==0){
+      stopLoading();
+    }
     createGroup(post1, post2);
   }
 }
