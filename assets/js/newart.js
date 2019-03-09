@@ -1,4 +1,3 @@
-let res = false;
 let posts = [];
 let ress = [];
 let comments = [];
