@@ -1,4 +1,4 @@
-let res = false;
+llet res = false;
 let posts = [];
 let ress = [];
 let comments = [];
@@ -16,6 +16,11 @@ function comment(num){
   '<a id="ct'+num+'" class="button alt" style="margin-top: 20px"'+
   'onclick="uncomment('+num+');"'+
   '>Close Comments</a>';
+}
+
+function stopLoading(){
+  let el = document.getElementById('loader');
+  el.parentNode.removeChild(el);
 }
 
 function readData(){
@@ -117,6 +122,9 @@ function makePage(){
       (posts[i+1]["list"]), i+1, posts[i+1]["list"]["name"]);
     } else {
       post2=createPost(posts[i+1]["image"], setData(posts[i+1]["list"]), i+1, posts[i+1]["list"]["name"]);
+    }
+    if(i==0){
+      stopLoading();
     }
     createGroup(post1, post2);
   }
