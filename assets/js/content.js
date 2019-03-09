@@ -36,6 +36,11 @@ let proceed = false;
 let deceed = false;
 let ccount = 0;
 
+function stopLoading(){
+  let el = document.getElementById('loader');
+  el.parentNode.removeChild(el);
+}
+
 function getData(){
   posts.reverse();
   for(i=0; i<posts.length; i++){
@@ -116,6 +121,9 @@ function makePage(){
       (posts[i+1]["list"]), i+1, posts[i+1]["list"]["name"]);
     } else {
       post2=createPost(posts[i+1]["image"], setData(posts[i+1]["list"]), i+1, posts[i+1]["list"]["name"]);
+    }
+    if(i==0){
+      stopLoading();
     }
     createGroup(post1, post2);
   }
