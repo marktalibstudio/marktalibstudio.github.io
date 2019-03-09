@@ -2,6 +2,34 @@
 @import url(font-awesome.min.css);
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700");
 
+.lds-dual-ring {
+  display: inline-block;
+  width: 100px;
+  height: 140px;
+}
+.lds-dual-ring:after {
+  position: absolute;
+  left: 44%;
+  content: " ";
+  display: block;
+  width: 100px;
+  height: 100px;
+  margin: 1px;
+  border-radius: 50%;
+  border: 20px solid rgb(0, 0, 0);
+  border-color: rgb(0, 0, 0) transparent rgb(0, 0, 0) transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
 /*
 	Hielo by TEMPLATED
 	templated.co @templatedco
