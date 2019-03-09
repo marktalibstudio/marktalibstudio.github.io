@@ -5,6 +5,11 @@ let comments = [];
 let done=false;
 let firebaseRef = firebase.database().ref();
 
+function stopLoading(){
+  let el = document.getElementById('loader');
+  el.parentNode.removeChild(el);
+}
+
 function comment(num){
   document.getElementById("ct"+num).parentNode.innerHTML=""+
   showComments(comments[num])+
@@ -113,6 +118,9 @@ function makePage(){
     let post2 = "";
     post2=createPost(posts[i+1]["image"], setPoster
     (posts[i+1]["list"]), i+1, posts[i+1]["list"]["name"]);
+    if(i==0){
+      stopLoading();
+    }
     createGroup(post1, post2);
   }
 }
