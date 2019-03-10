@@ -89,7 +89,7 @@ function nextData(num){
       swal({text: "Changes has been made, the page will be refreshed"});
       location.reload();
     } 
-    posts.push({"image":snapshot.val()["image "], "list":{
+    posts.push({"image":snapshot.val()["image"], "list":{
     "date": snapshot.val().list.date,
     "desc": snapshot.val().list.desc,
     "name": snapshot.val().list.name,
