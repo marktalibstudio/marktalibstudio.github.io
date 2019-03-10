@@ -4,6 +4,11 @@ let comments = [];
 let done=false;
 let firebaseRef = firebase.database().ref();
 
+function stopLoading(){
+  let el = document.getElementById('loader');
+  el.parentNode.removeChild(el);
+}
+
 function comment(num){
   document.getElementById("ct"+num).parentNode.innerHTML=""+
   showComments(comments[num])+
