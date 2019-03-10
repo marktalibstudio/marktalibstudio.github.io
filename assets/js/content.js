@@ -89,7 +89,7 @@ function nextData(num){
       swal({text: "Changes has been made, the page will be refreshed"});
       location.reload();
     } 
-    posts.push({"image":snapshot.val()["image "], "list":{
+    posts.push({"image":snapshot.val()["image"], "picture":snapshot.val()["picture"], list:{
     "date": snapshot.val().list.date,
     "desc": snapshot.val().list.desc,
     "name": snapshot.val().list.name,
@@ -134,7 +134,7 @@ function createGroup(box1, box2){
 }
 
 function createPost(image, data, id, artname){
-  return '<div><div class="box"><div class="image fit"><img src="'+image+'" alt="" /></div><div class="content"><header class="align-center"><a id="bt'+id+'" onclick="resolution('+id+');" style="margin-bottom: 30px; margin-top: -30px;"class="button alt">Enable High Resolution</a><p>Available in High Resolution</p><h2>'+artname+'</h2></header>'+data+'<footer class="align-center"><a style="margin-top: -10px;" id="ct'+id+'" class="button alt" onclick="comment('+id+');">Browse Comments</a></footer></div> <!-- content --></div> <!-- box --></div> <!-- empty -->'
+  return '<div><div class="box"><div class="image fit"><img id="img'+id+'" src="'+image+'" alt="" /></div><div class="content"><header class="align-center"><a id="bt'+id+'" onclick="resolution('+id+');" style="margin-bottom: 30px; margin-top: -30px;"class="button alt">Enable High Resolution</a><p>Available in High Resolution</p><h2>'+artname+'</h2></header>'+data+'<footer class="align-center"><a style="margin-top: -10px;" id="ct'+id+'" class="button alt" onclick="comment('+id+');">Browse Comments</a></footer></div> <!-- content --></div> <!-- box --></div> <!-- empty -->'
 }
 
 function setData(list){
@@ -177,8 +177,10 @@ function resolution(num){
   console.log(num+" state: "+!ress[num]);
   ress[num]=!ress[num];
   if(ress[num]){
+    document.getElementById("img"+num).src=posts[num]["picture"];
     document.getElementById("bt"+num).innerHTML="Disable High Resolution";
   } else {
+    document.getElementById("img"+num).src=posts[num]["image"];
     document.getElementById("bt"+num).innerHTML="Enable High Resolution";
   }
 }
